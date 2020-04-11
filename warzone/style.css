@@ -73,3 +73,18 @@ a:hover {
 a:active {
   color: salmon;
 }
+
+.leaflet-control-scale-line, .leaflet-control-scale-line:not(:first-child) {
+	margin-top: 0;
+	padding: 5px 5px 1px;
+	border-top: none;
+	border-left: none;
+	border-bottom: none;
+	border-right: 2px solid salmon;
+	background-color: #212121;
+	color: #fff;
+}
+
+.leaflet-left .leaflet-control-scale {
+	margin: 0;
+}
