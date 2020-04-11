@@ -1,0 +1,75 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background: #121212;
+}
+
+#map {
+	width: 100vw;
+	height: 100vh;
+	background-color: transparent;
+}
+
+.leaflet-touch .leaflet-bar {
+	border: none;
+	box-shadow: inherit;
+}
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-bar a {
+	padding: 4px;
+	background-color: #212121;
+	color: salmon;
+	border: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover,
+.leaflet-bar a:hover {
+	border: none;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.leaflet-control-zoom-out .leaflet-disabled,
+.leaflet-bar a.leaflet-disabled {
+	background-color: #171717;
+	color: #333
+}
+
+
+.leaflet-right .leaflet-control {
+	margin-right: 20px;
+}
+
+.leaflet-top .leaflet-control {
+	margin-top: 20px;
+}
+
+
+.leaflet-container .leaflet-control-attribution {
+	padding: 10px;
+	background-color: #212121;
+	color: #fff;
+	border-radius: 4px 0 0 0;
+	margin-right: 0;
+}
+
+a:link {
+  color: salmon;
+}
+
+a:visited {
+  color: salmon;
+}
+
+a:hover {
+  color: #fff;
+}
+
+a:active {
+  color: salmon;
+}
