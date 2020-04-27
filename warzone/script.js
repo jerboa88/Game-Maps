@@ -6,7 +6,32 @@ let minzoom = 0,
 		// Thanks SlammedOptima!
 		realmapsize = 2912, // Real world map size in meters
 		mapscalefactor = (tilesize * 2) / realmapsize,	// Multiplying the real world distance by this value gives 1024, the width of the map with 2 tiles
-		bounds = [[0, 0], [-realmapsize, realmapsize]]
+		bounds = [[0, 0], [-realmapsize, realmapsize]];
+
+let points = {
+	vehicles: {
+		atv: 	[
+			[943, 2454],
+			[625, 2256],
+			[711, 2101]
+		],
+		tacticalrover: 	[
+			[1117, 2377]
+		]
+	}
+}
+
+let checkboxes = document.querySelectorAll('input[type=checkbox]')
+
+for (const checkbox of checkboxes) {
+	checkbox.addEventListener('change', function() {
+		if (this.checked) {
+			showLayer(checkbox.name);
+		} else {
+			hideLayer(checkbox.name);
+		}
+	});
+}
 
 
 
@@ -36,38 +61,74 @@ L.CRS.pr = L.extend({}, L.CRS.Simple, {
 
 
 
-// From https://leafletjs.com/examples/crs-simple/crs-simple.html
-// Thanks Leaflet!
-let yx = L.latLng;
+// Convert a LatLng object to coords
+function toCoords(latLng) {
+	return [Math.round(latLng.lng), Math.round(-latLng.lat)];
+}
 
-let xy = function(x, y) {
-	if (L.Util.isArray(x)) {	// When doing xy([x, y]);
-		return yx(-x[1], x[0]);
-	}
-	return yx(-y, x);	// When doing xy(x, y);
-};
 
+// Convert coords to a LatLng object
+function toLatLng(coords) {
+	return L.latLng(-coords[1], coords[0]);
+}
 
 
 let map = L.map('map', {
-			crs: L.CRS.pr,	// Use our custom projection
-			zoom: minzoom,
-			minZoom: minzoom,
-			minNativeZoom: minzoom,
-			maxZoom: maxzoom,
-			maxNativeZoom: maxzoom,
-			maxBounds: bounds,
-			zoomDelta: 0.5,
-			zoomSnap: 0.5,
-			wheelPxPerZoomLevel: 128
-		});
+	crs: L.CRS.pr,	// Use our custom projection
+	zoom: minzoom,
+	minZoom: minzoom,
+	minNativeZoom: minzoom,
+	maxZoom: maxzoom,
+	maxNativeZoom: maxzoom,
+	maxBounds: bounds,
+	zoomDelta: 0.5,
+	zoomSnap: 0.5,
+	wheelPxPerZoomLevel: 128,
+	attributionControl: false
+});
 
 
 
-// let mapmarker = xy(realmapsize, realmapsize);	// Test map marker
+let layers = {}
 
-// L.marker(mapmarker).addTo(map).bindPopup('mapmarker');
 
+// Iterate through all points and put them on the map
+function initMarkers() {
+	for (category in points) {
+		for (subcategory in points[category]) {
+			layers[subcategory] = map.createPane(subcategory);
+
+			for (point of points[category][subcategory]) {
+				new L.marker(toLatLng(point), {
+					pane: subcategory
+				}).addTo(map).bindPopup(subcategory);
+			}
+		}
+	}
+}
+
+
+function showLayer(layerName) {
+	layers[layerName].style.display = '';
+}
+
+
+function hideLayer(layerName) {
+	layers[layerName].style.display = 'none';
+}
+
+
+
+
+// https://gis.stackexchange.com/questions/88273/triggering-click-event-on-leaflet-map
+// Thanks Alex Leith!
+map.on('click', function(e) {
+	let coords = toCoords(e.latlng);
+	let popup = L.popup()
+	.setLatLng(e.latlng)
+	.setContent('<p>' + coords[0] + ', ' + coords[1] + '</p>')
+	.openOn(map);
+});
 
 L.tileLayer('tiles/{z}/{y}-{x}.jpg', {
 	minZoom: minzoom,
@@ -75,8 +136,7 @@ L.tileLayer('tiles/{z}/{y}-{x}.jpg', {
 	maxZoom: maxzoom + 1,
 	maxNativeZoom: maxzoom + 1,
 	tileSize: tilesize,
-	zoomOffset: 1,
-	attribution: 'Site made by <a href="https://johng.io/">John Goodliff</a> | Map data from Call of Duty: Modern Warfare by <a href="https://www.activision.com/">Activision</a> | Map powered by <a href="https://leafletjs.com/">Leaflet</a>'
+	zoomOffset: 1
 }).addTo(map);
 
 // Low res background image
@@ -84,8 +144,8 @@ L.imageOverlay('tiles/0/0-0.jpg', bounds, {pane: 'mapPane'}).addTo(map);
 
 L.control.scale().addTo(map);
 
-map.attributionControl.setPrefix('')
-
 map.zoomControl.setPosition('topright')	// Position zoom control
 
 map.fitBounds(bounds);
+
+initMarkers();

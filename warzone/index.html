@@ -19,9 +19,98 @@
 		<link rel='stylesheet' href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css" />
 		<link rel="stylesheet" href="style.css" />
 		<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js"></script>
-		<script src="/js/leaflet-mapbox-gl.js"></script>
 	</head>
 <body>
+	<div id="panel">
+		<h1>Warzone<br>Map</h1>
+		<div id="layers">
+			<h2>Layers</h2>
+
+			<details open>
+				<summary>Locations</summary>
+				<ul>
+					<li>
+						<label>
+							<input type="checkbox" value="Sectors" disabled>
+							Sectors
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" value="Zones" disabled>
+							Zones
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" value="Coordinates" disabled>
+							Coordinates
+						</label>
+					</li>
+				</ul>
+			</details>
+
+			<details open>
+				<summary>Objects</summary>
+				<ul>
+					<li>
+						<label>
+							<input type="checkbox" value="Ammo Cache" disabled>
+							Ammo Cache
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" value="Buy Station" disabled>
+							Buy Station
+						</label>
+					</li>
+				</ul>
+			</details>
+
+			<details open>
+				<summary>Vehicles</summary>
+				<ul>
+					<li>
+						<label>
+							<input type="checkbox" name="atv" value="ATV" checked>
+							ATV
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" name="tacticalrover" value="Tactical Rover" checked>
+							Tactical Rover
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" value="SUV" disabled>
+							SUV
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" value="Cargo Truck" disabled>
+							Cargo Truck
+						</label>
+					</li>
+					<li>
+						<label>
+							<input type="checkbox" value="Helicopter" disabled>
+							Helicopter
+						</label>
+					</li>
+				</ul>
+			</details>
+		</div>
+
+		<div>
+			<h2>About</h2>
+			<p>An interactive map of Verdansk from Warzone in Call of Duty Modern Warfare. A Work in Progress</p>
+			<p>Site made by <a href="https://johng.io/">John Goodliff</a>. Map data from Call of Duty: Modern Warfare by <a href="https://www.activision.com/">Activision</a>. Map powered by <a href="https://leafletjs.com/">Leaflet</a>. Check the project out on <a href="https://github.com/jerboa88/Game-Maps"></a>Github</a>.</p>
+		</div>
+	</div>
 	<div id="map"></div>
 
 	<script src="script.js"></script>

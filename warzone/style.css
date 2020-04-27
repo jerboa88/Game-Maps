@@ -1,3 +1,16 @@
+:root {
+	--bg-color: #121212;
+	--control-bg-color: #212121;
+	--disabled-bg-color: #171717;
+	--disabled-fg-color: #333;
+	--text-color: #fff;
+	--accent-color: salmon;
+	--control-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	--control-shadow-hover: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	--control-shadow-transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -19,11 +32,11 @@ html, body {
 .leaflet-control-zoom-out,
 .leaflet-bar a {
 	padding: 4px;
-	background-color: #212121;
-	color: salmon;
+	background-color: var(--control-bg-color);
+	color: var(--accent-color);
 	border: none;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+	box-shadow: var(--control-shadow);
+  transition: var(--control-shadow-transition);
 }
 
 
@@ -31,13 +44,13 @@ html, body {
 .leaflet-control-zoom-out:hover,
 .leaflet-bar a:hover {
 	border: none;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: var(--control-shadow-hover);
 }
 
 .leaflet-control-zoom-out .leaflet-disabled,
 .leaflet-bar a.leaflet-disabled {
-	background-color: #171717;
-	color: #333
+	background-color: var(--disabled-bg-color);
+	color: var(--disabled-fg-color);
 }
 
 
@@ -52,26 +65,26 @@ html, body {
 
 .leaflet-container .leaflet-control-attribution {
 	padding: 10px;
-	background-color: #212121;
-	color: #fff;
+	background-color: var(--control-bg-color);
+	color: var(--text-color);
 	border-radius: 4px 0 0 0;
 	margin-right: 0;
 }
 
 a:link {
-  color: salmon;
+  color: var(--accent-color);
 }
 
 a:visited {
-  color: salmon;
+  color: var(--accent-color);
 }
 
 a:hover {
-  color: #fff;
+  color: var(--text-color);
 }
 
 a:active {
-  color: salmon;
+  color: var(--accent-color);
 }
 
 .leaflet-control-scale-line, .leaflet-control-scale-line:not(:first-child) {
@@ -80,11 +93,83 @@ a:active {
 	border-top: none;
 	border-left: none;
 	border-bottom: none;
-	border-right: 2px solid salmon;
-	background-color: #212121;
-	color: #fff;
+	border-right: 2px solid var(--accent-color);
+	background-color: var(--control-bg-color);
+	color: var(--text-color);
+	box-shadow: var(--control-shadow);
+	transition: var(--control-shadow-transition);
+}
+
+.leaflet-control-scale-line:hover, .leaflet-control-scale-line:not(:first-child):hover {
+	box-shadow: var(--control-shadow-hover);
 }
 
 .leaflet-left .leaflet-control-scale {
 	margin: 0;
+}
+
+
+
+/* Side panel */
+#panel {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 2rem;
+	background: var(--control-bg-color);
+	box-shadow: var(--control-shadow-hover);
+}
+
+h1 {
+	margin: 0;
+	padding: 0 0 1em 0;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 3.5em;
+	text-align: center;
+	color: var(--text-color);
+}
+
+p, a:link, li {
+	font-size: .8rem;
+}
+
+summary {
+	font-size: 1rem;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#layers {
+	flex: auto;
+}
+
+ul {
+	padding-left: 1em;
+}
+
+li {
+	list-style-type: none;
+}
+
+body {
+  display: flex;
+	flex-direction: column;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	color: var(--text-color);
+}
+
+body, body * {
+	outline-color: var(--accent-color);
+}
+
+@media (min-width: 900px) and (orientation: landscape) {
+  body{
+    flex-direction: row;
+  }
+  #panel {
+    width: 400px; /* or flex-basis: xx - try them both */
+  }
+  #map {
+    flex-basis: 100%; /* "if at all possible... please try to be this size..." */
+  }
 }
