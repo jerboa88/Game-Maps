@@ -122,30 +122,40 @@
 
 	// Iterate through all points and put them on the map
 	function createMarkers() {
-		let markerSize = 64,
-				markerCenter = markerSize / 2,
-				popupCenter = -markerSize - 4
-
-		for (category in points) {
-			for (subcategory in points[category]) {
-				layers[subcategory] = map.createPane(subcategory);
-
-				let icon = L.icon({
-						iconUrl: 'icons/' + subcategory + '.png',
-						iconSize:     [markerSize, markerSize],
-						iconAnchor:   [markerCenter, markerSize],
-						shadowSize:   [0, 0],
-						popupAnchor:  [0, popupCenter]
-				});
-
-				for (point of points[category][subcategory]) {
-					new L.marker(toLatLng(point), {
-						pane: subcategory,
-						icon: icon
-					}).addTo(map).bindPopup(subCategoryNames[subcategory]);
+		fetch('points.json')
+			.then(response => {
+				if (response.ok) {
+					return response.json();
 				}
-			}
-		}
+				throw new Error(response.status);
+			})
+			.then(json => {
+				let points = json.points,
+						markerSize = 64,
+						markerCenter = markerSize / 2,
+						popupCenter = -markerSize - 4
+
+				for (category in points) {
+					for (subcategory in points[category]) {
+						layers[subcategory] = map.createPane(subcategory);
+
+						let icon = L.icon({
+								iconUrl: 'icons/' + subcategory + '.png',
+								iconSize:     [markerSize, markerSize],
+								iconAnchor:   [markerCenter, markerSize],
+								shadowSize:   [0, 0],
+								popupAnchor:  [0, popupCenter]
+						});
+
+						for (point of points[category][subcategory]) {
+							new L.marker(toLatLng(point), {
+								pane: subcategory,
+								icon: icon
+							}).addTo(map).bindPopup(subCategoryNames[subcategory]);
+						}
+					}
+				}
+			});
 	}
 
 
