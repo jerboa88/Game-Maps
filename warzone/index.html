@@ -31,10 +31,112 @@
 		<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 		<link rel='stylesheet' href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.css" />
 		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@900&display=swap">
 		<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.35.1/mapbox-gl.js"></script>
+
+		<link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.min.js"></script>
 	</head>
 <body>
-	<div id="map"></div>
+	<div id="panel">
+		<h1>Warzone Map</h1>
+		<div id="layers">
+			<h2>Layers</h2>
+
+			<label class="heading">
+				<input type="checkbox" name="locations" value="Locations" disabled>
+				Locations
+			</label>
+			<ul>
+				<li>
+					<label>
+						<input type="checkbox" value="Sectors" disabled>
+						Sectors
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" value="Zones" disabled>
+						Zones
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" value="Coordinates" disabled>
+						Coordinates
+					</label>
+				</li>
+			</ul>
+
+			<label class="heading">
+				<input type="checkbox" name="objects" value="Objects" disabled>
+				Objects
+			</label>
+			<ul>
+				<li>
+					<label>
+						<input type="checkbox" value="Ammo Cache" disabled>
+						Ammo Cache
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" value="Buy Station" disabled>
+						Buy Station
+					</label>
+				</li>
+			</ul>
+
+			<label class="heading">
+				<input type="checkbox" name="vehicles" value="Vehicles" checked>
+				Vehicles
+			</label>
+			<ul>
+				<li>
+					<label>
+						<input type="checkbox" name="atv" value="ATV" checked>
+						ATV
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" name="tacticalrover" value="Tactical Rover" checked>
+						Tactical Rover
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" name="suv" value="SUV" checked>
+						SUV
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" name="cargotruck" value="Cargo Truck" checked>
+						Cargo Truck
+					</label>
+				</li>
+				<li>
+					<label>
+						<input type="checkbox" name="helicopter" value="Helicopter" checked>
+						Helicopter
+					</label>
+				</li>
+			</ul>
+		</div>
+
+		<div>
+			<h2>About</h2>
+
+			<p>An interactive map of Verdansk from Warzone in Call of Duty Modern Warfare. See the locations of vehicles, ammo caches, and buy stations</p>
+			<p>Site made by <a href="https://johng.io/">John Goodliff</a>. Map data from Call of Duty: Modern Warfare by <a href="https://www.activision.com/">Activision</a>. Map powered by <a href="https://leafletjs.com/">Leaflet</a>. Modified bullet icon created from the original by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>. Up arrow icon from the <a href="https://www.flaticon.com/authors/smashicons">Material Design iconset</a>. Check the project out on <a href="https://github.com/jerboa88/Game-Maps">Github</a>.</p>
+			<p><b>This is a work in progress and contributions are welcome.</b> Please report any issues <a href="https://github.com/jerboa88/Game-Maps/issues">here</a>.</p>
+		</div>
+	</div>
+	<div id="map">
+		<a id="button" href="#panel" onclick="event.stopPropagation()"></a>
+	</div>
 
 	<script src="script.js"></script>
 </body>
