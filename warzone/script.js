@@ -14,18 +14,6 @@
 				suv: 'SUV',
 				cargotruck: 'Cargo Truck',
 				helicopter: 'Helicopter'
-			},
-			points = {
-				vehicles: {
-					atv: 	[
-						[943, 2454],
-						[625, 2256],
-						[711, 2101]
-					],
-					tacticalrover: 	[
-						[1117, 2377]
-					]
-				}
 			}
 
 
@@ -52,7 +40,14 @@
 
 	// Add event listeners for checkboxes
 	function addEventListeners() {
-		let checkboxes = document.querySelectorAll('input[type=checkbox]');
+		let group_checkboxes = document.querySelectorAll('.heading > input[type=checkbox]'),
+				checkboxes = document.querySelectorAll('li > label > input[type=checkbox]');
+
+		for (const group_checkbox of group_checkboxes) {
+			group_checkbox.addEventListener('change', function() {
+				toggleLayerGroup(group_checkbox.name, this.checked);
+			});
+		}
 
 		for (const checkbox of checkboxes) {
 			checkbox.addEventListener('change', function() {
@@ -67,11 +62,11 @@
 		// From https://gis.stackexchange.com/questions/88273/triggering-click-event-on-leaflet-map
 		// Thanks Alex Leith!
 		map.on('click', function(e) {
-			let coords = toCoords(e.latlng);
-			let popup = L.popup()
-			.setLatLng(e.latlng)
-			.setContent('<p>' + coords[0] + ', ' + coords[1] + '</p>')
-			.openOn(map);
+			let coords = toCoords(e.latlng),
+					popup = L.popup()
+						.setLatLng(e.latlng)
+						.setContent('<p>' + coords[0] + ', ' + coords[1] + '</p>')
+						.openOn(map);
 		});
 	}
 
@@ -140,7 +135,7 @@
 						layers[subcategory] = map.createPane(subcategory);
 
 						let icon = L.icon({
-								iconUrl: 'icons/' + subcategory + '.png',
+								iconUrl: 'img/' + subcategory + '.png',
 								iconSize:     [markerSize, markerSize],
 								iconAnchor:   [markerCenter, markerSize],
 								shadowSize:   [0, 0],
@@ -159,12 +154,45 @@
 	}
 
 
+	// Show a given layer on the map given its name
+	function toggleLayerGroup(layerGroupName, isChecked) {
+		if (isChecked) {
+			for (const key in points[layerGroupName]) {
+				if (object.hasOwnProperty(key)) {
+					const element = object[key];
+					console.log(element);
+				}
+			}
+		}
+	}
+
+
+	var toggleLayerGroup = (function(layerGroupName, isChecked) {
+		let mapping = {
+			vehicles: ['atv', 'tacticalrover', 'suv', 'cargotruck', 'helicopter']
+		};
+
+		return function (layerGroupName, isChecked) {
+			if (isChecked) {
+				for (const layer of mapping[layerGroupName]) {
+					showLayer(layer);
+				}
+				// Update checkboxes here
+			}
+			else {
+				for (const layer of mapping[layerGroupName]) {
+					hideLayer(layer);
+				}
+				// Update checkboxes here
+			}
+		}
+	})();
+
 
 	// Show a given layer on the map given its name
 	function showLayer(layerName) {
 		layers[layerName].style.display = '';
 	}
-
 
 
 	// Hide a given layer on the map given its name
