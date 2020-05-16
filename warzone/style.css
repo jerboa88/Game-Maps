@@ -39,8 +39,6 @@ body, body * {
 }
 
 #map {
-	width: 100vw;
-	height: 100vh;
 	background-color: transparent;
 }
 
@@ -197,7 +195,7 @@ li {
 
 @media (orientation: portrait) {
 	body {
-		height: 200vh;
+		min-height: 200vh;
 		flex-direction: column-reverse;
 	}
 
@@ -207,9 +205,10 @@ li {
 	}
 
 	#map {
-		width: initial;
-		height: initial;
-		flex: 1 1 50%;
+		flex: 1 0 50%;
+		min-height: calc(100vh - 56px);	/* Dirty hack to adjust vh for url bar in Chrome mobile */
+		/* min-height: -webkit-fill-available; */
+		/* min-height: 50%; */
 	}
 
 	#button {
