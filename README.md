@@ -18,7 +18,7 @@
   </p>
   
   <p class="projectDesc">
-    Interactive maps from video games. At the moment, the only map available is <a href="https://maps.johng.io/warzone/">COD Warzone</a>.
+    An interactive online map of Verdansk from COD Warzone
   </p>
   
   <br/>
