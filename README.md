@@ -28,7 +28,8 @@
 </div>
 
 
-> **Note:** I've marked this project as **UNMAINTAINED** because it hasn't seen an update in a while. You can still fork/download/use this project at your own risk, but I won't be able to provide support or updates. [More details](https://unmaintained.tech)
+> [!IMPORTANT]
+> I've marked this project as [UNMAINTAINED](https://unmaintained.tech/) because it hasn't seen an update in a while. You can still fork/download/use this project at your own risk, but I won't be able to provide support or updates.
 
 
 ## License
