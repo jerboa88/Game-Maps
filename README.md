@@ -1,9 +1,9 @@
 <!-- Project Header -->
-<div align="center"> 
+<div align="center">
   <img class="projectLogo" src="warzone/favicon.svg" alt="Project logo" title="Project logo" width="256">
 
   <h1 class="projectName">
-    <a href="https://maps.johng.io">
+    <a href="https://game-maps.johng.io">
       Game Maps
     </a>
   </h1>
@@ -18,12 +18,15 @@
     <a href="LICENSE">
       <img src="https://img.shields.io/github/license/jerboa88/Game-Maps.svg" alt="Project license" title="Project license"/>
     </a>
+    <a href="https://game-maps.johng.io" title="Game Maps">
+			<img src="https://img.shields.io/website?url=https%3A%2F%2Fgame-maps.johng.io&up_message=game.maps.johng.io%20%E2%86%97" alt="Project URL" title="Project URL">
+		</a>
   </p>
-  
+
   <p class="projectDesc">
     An interactive online map of Verdansk from COD Warzone
   </p>
-  
+
   <br/>
 </div>
 
