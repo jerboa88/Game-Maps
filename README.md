@@ -23,7 +23,7 @@
 		</a>
   </p>
 
-  <p class="projectDesc">
+  <p class="projectDesc" data-exposition="An interactive online map from the video game, Call of Duty. Created as a resource for other players to use, this project was made using the Leaflet.js library and high resolution images captured from the game.">
     An interactive online map of Verdansk from COD Warzone
   </p>
 
