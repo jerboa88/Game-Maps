@@ -1,0 +1,16 @@
+{
+  "$schema": "https://johng.io/schema/project-metadata.json",
+  "name": "Game Maps",
+  "background": "An interactive online map from the video game, Call of Duty. Created as a resource for other players to use, this project was made using the Leaflet.js library and high resolution images captured from the game.",
+	"logoPath": "warzone/favicon.svg",
+	"category": "App",
+	"subcategory": "Web",
+  "technologies": [
+    "Leaflet"
+  ],
+  "schema": {
+    "type": "Web",
+    "applicationCategory": "Game",
+    "operatingSystem": "Any"
+  }
+}
