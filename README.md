@@ -13,10 +13,10 @@
       <img src="https://unmaintained.tech/badge.svg" alt="No Maintenance Intended" title="No Maintenance Intended"/>
     </a>
     <img src="https://johng.io/badges/category/App.svg" alt="Project category" title="Project category">
-    <img src="https://img.shields.io/github/languages/top/twocaretcat/Game-Maps.svg" alt="Language" title="Language">
-    <img src="https://img.shields.io/github/repo-size/twocaretcat/Game-Maps.svg" alt="Repository size" title="Repository size">
+    <img src="https://img.shields.io/github/languages/top/caret-collective/Game-Maps.svg" alt="Language" title="Language">
+    <img src="https://img.shields.io/github/repo-size/caret-collective/Game-Maps.svg" alt="Repository size" title="Repository size">
     <a href="LICENSE">
-      <img src="https://img.shields.io/github/license/twocaretcat/Game-Maps.svg" alt="Project license" title="Project license"/>
+      <img src="https://img.shields.io/github/license/caret-collective/Game-Maps.svg" alt="Project license" title="Project license"/>
     </a>
     <a href="https://game-maps.johng.io" title="Game Maps">
 			<img src="https://img.shields.io/website?url=https%3A%2F%2Fgame-maps.johng.io&up_message=game.maps.johng.io%20%E2%86%97" alt="Project URL" title="Project URL">
