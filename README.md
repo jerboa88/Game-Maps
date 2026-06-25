@@ -30,14 +30,25 @@
   <br/>
 </div>
 
-
 > [!IMPORTANT]
 > I've marked this project as [UNMAINTAINED](https://unmaintained.tech/) because it hasn't seen an update in a while. You can still fork/download/use this project at your own risk, but I won't be able to provide support or updates.
 
+> [!NOTE]
+> This map is of the original version of Verdansk, so spawn locations may no longer be accurate.
+
+## 👋 About
+
+An interactive map of Verdansk from Warzone in Call of Duty Modern Warfare 2019. See the locations of vehicles, ammo caches, and buy stations.
+
+### Screenshots
+
+| ![Screenshot of the homepage](docs/screenshot.png) |
+| -------------------------------------------------- |
+| _Homepage_                                         |
 
 ## 🧾 License
-This project is licensed under the Mozilla Public License 2.0. See [LICENSE](LICENSE) for details.
 
+This project is licensed under the Mozilla Public License 2.0. See [LICENSE](LICENSE) for details.
 
 ## 💕 Funding
 
