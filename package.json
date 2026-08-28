@@ -1,0 +1,43 @@
+{
+	"name": "game-maps",
+	"version": "1.0.0",
+	"description": "An interactive online map of Verdansk from COD Warzone.",
+	"keywords": [
+		"call of duty",
+		"cod warzone",
+		"game map",
+		"leaflet",
+		"verdansk",
+		"warzone map"
+	],
+	"homepage": "https://game-maps.johng.io",
+	"bugs": "https://github.com/caret-collective/Game-Maps/issues",
+	"license": "MPL-2.0",
+	"author": {
+		"name": "John Goodliff",
+		"url": "https://johng.io"
+	},
+	"funding": [
+		{
+			"type": "individual",
+			"url": "https://johng.io/funding"
+		},
+		{
+			"type": "GitHub Sponsors",
+			"url": "https://github.com/sponsors/twocaretcat"
+		},
+		{
+			"type": "Patreon",
+			"url": "https://patreon.com/twocaretcat"
+		},
+		{
+			"type": "Brave Creators",
+			"url": "https://publishers.basicattentiontoken.org/en/c/johng"
+		}
+	],
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/caret-collective/Game-Maps.git"
+	}
+}
